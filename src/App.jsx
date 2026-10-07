@@ -5,6 +5,8 @@ import logoUcp from './assets/logoUCP.png';
 import heroBg from './assets/hero-bg.png';
 import qrCode from './assets/qr-code.jpg';
 
+import Sparks from '../components/Sparks';
+
 function App() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -29,6 +31,9 @@ function App() {
     <div className="site-container">
       <section className="hero-section" style={{ backgroundImage: `url(${heroBg})` }}>
         <div className="dark-overlay"></div>
+
+        {/* 70% искр — над фоном и оверлеем, но под контентом героя */}
+        <Sparks count={70} className="sparks-back" />
 
         <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
           <div className="header-inner">
@@ -74,6 +79,9 @@ function App() {
             </div>
           </div>
         </div>
+
+        {/* 30% искр — поверх всего первого экрана (текст, лого, карточки) */}
+        <Sparks count={30} className="sparks-front" />
 
         <div className="bottom-blend-gradient"></div>
       </section>

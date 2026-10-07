@@ -430,6 +430,24 @@ body {
   text-decoration: none;
 }
 
+
+.sparks-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+}
+
+.sparks-back {
+  z-index: 3;   /* над dark-overlay(1) и bottom-blend-gradient(2) */
+}
+
+.sparks-front {
+  z-index: 50;  /* над hero-content(5) и карточками, под header(100) */
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 1200px) {
   .cards-grid {
