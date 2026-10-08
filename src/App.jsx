@@ -21,11 +21,11 @@ function App() {
   }, []);
 
   const cards = [
-    { id: '01', subtitle: 'UCP EXPORT', title: 'СРЕДСТВА ЗАЩИТЫ И ОБОРУДОВАНИЕ' },
-    { id: '02', subtitle: 'IRTCENTRE', title: 'КРАТКОСРОЧНЫЕ КУРСЫ' },
-    { id: '03', subtitle: 'ОБУЧЕНИЕ', title: 'ВЫСШЕЕ ОБРАЗОВАНИЕ' },
-    { id: '04', subtitle: '', title: 'ИСПЫТАТЕЛЬНАЯ ДЕЯТЕЛЬНОСТЬ' },
-    { id: '05', subtitle: '', title: 'ИННОВАЦИОННОЕ ОБОРУДОВАНИЕ' },
+    { id: '01', subtitle: 'UCP EXPORT', titleStart: 'СРЕДСТВА ЗАЩИТЫ', titleAccent: 'И ОБОРУДОВАНИЕ' },
+    { id: '02', subtitle: 'IRTCENTRE', titleStart: 'КРАТКОСРОЧНЫЕ', titleAccent: 'КУРСЫ' },
+    { id: '03', subtitle: 'ОБУЧЕНИЕ', titleStart: 'ВЫСШЕЕ', titleAccent: 'ОБРАЗОВАНИЕ' },
+    { id: '04', subtitle: '', titleStart: 'ИСПЫТАТЕЛЬНАЯ', titleAccent: 'ДЕЯТЕЛЬНОСТЬ' },
+    { id: '05', subtitle: '', titleStart: 'ИННОВАЦИОННОЕ', titleAccent: 'ОБОРУДОВАНИЕ' },
   ];
 
   return (
@@ -70,7 +70,7 @@ function App() {
 
         {/* Подсказка для скролла вниз */}
         <a href="#cards" className="scroll-hint" aria-label="Прокрутить вниз">
-          <span className="scroll-hint-text">Продолжите знакомство</span>
+          <span className="scroll-hint-text">Смотреть каталог</span>
           <span className="scroll-hint-arrow">↓</span>
         </a>
 
@@ -84,20 +84,23 @@ function App() {
           {cards.map((card) => (
             <a key={card.id} className="nav-card" href={`#card-${card.id}`}>
               {/* Картинка — это и есть карточка */}
-              <img src={pojarnImg} alt={card.title} className="card-image" />
+              <img src={pojarnImg} alt={card.titleAccent} className="card-image" />
 
-              {/* Текст поверх картинки */}
+              {/* Номер — сверху слева */}
+              <span className="card-number">{card.id}</span>
+
+              {/* Текст — снизу, над стрелкой */}
               <div className="card-text-layer">
-                <span className="card-number">{card.id}</span>
-                <div className="card-body">
-                  {card.subtitle && (
-                    <span className="card-subtitle">{card.subtitle}</span>
-                  )}
-                  <h3 className="card-title">{card.title}</h3>
-                </div>
+                {card.subtitle && (
+                  <span className="card-subtitle">{card.subtitle}</span>
+                )}
+                <h3 className="card-title">
+                  {card.titleStart}{' '}
+                  <span className="card-accent">{card.titleAccent}</span>
+                </h3>
               </div>
 
-              {/* Стрелка в кружке — слева внизу, отступ как у нумерации */}
+              {/* Стрелка в кружке — слева внизу */}
               <span className="arrow-circle-btn">&rarr;</span>
             </a>
           ))}

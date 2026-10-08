@@ -319,22 +319,12 @@ body {
   filter: grayscale(0) brightness(0.95);
 }
 
-/* Текстовый слой — поверх картинки, без затемняющего фона */
-.card-text-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 22px;
-  pointer-events: none;
-  line-height: 1.3;
-  background: transparent;
-  border-radius: 16px;
-}
-
+/* Номер — сверху слева */
 .card-number {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  z-index: 3;
   font-size: 22px;
   font-weight: 800;
   color: #e31e24;
@@ -343,8 +333,19 @@ body {
   line-height: 1;
 }
 
-.card-body {
-  margin-top: 14px;
+/* Текстовый слой — снизу, над стрелкой */
+.card-text-layer {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 82px;              /* 22px (отступ стрелки) + 44px (высота круга) + 16px зазор */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  line-height: 1.3;
+  background: transparent;
+  text-align: left;
 }
 
 .card-subtitle {
@@ -353,7 +354,7 @@ body {
   color: #e6e9ee;
   font-weight: 700;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   text-transform: uppercase;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
 }
@@ -365,9 +366,20 @@ body {
   color: #ffffff;
   text-transform: uppercase;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+  margin: 0;
 }
 
-/* Стрелка в кружке — слева внизу. */
+/* Акцентное слово — по умолчанию белое, при наведении красное */
+.card-accent {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.nav-card:hover .card-accent {
+  color: #e31e24;
+}
+
+/* Стрелка в кружке — слева внизу */
 .arrow-circle-btn {
   position: absolute;
   left: 22px;
