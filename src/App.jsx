@@ -37,11 +37,11 @@ function App() {
   };
 
   const cards = [
-    { id: '01', subtitle: 'UCP EXPORT', titleStart: 'СРЕДСТВА ЗАЩИТЫ', titleAccent: 'И ОБОРУДОВАНИЕ', image: card1 },
-    { id: '02', subtitle: 'IRTCENTRE', titleStart: 'КРАТКОСРОЧНЫЕ', titleAccent: 'КУРСЫ', image: card2 },
-    { id: '03', subtitle: 'ОБУЧЕНИЕ', titleStart: 'ВЫСШЕЕ', titleAccent: 'ОБРАЗОВАНИЕ', image: card3 },
-    { id: '04', subtitle: '', titleStart: 'ИСПЫТАТЕЛЬНАЯ', titleAccent: 'ДЕЯТЕЛЬНОСТЬ', image: card4 },
-    { id: '05', subtitle: '', titleStart: 'ИННОВАЦИОННОЕ', titleAccent: 'ОБОРУДОВАНИЕ', image: card5 },
+    { id: '01', subtitle: 'UCP EXPORT', title: 'СРЕДСТВА ЗАЩИТЫ И ОБОРУДОВАНИЕ', image: card1 },
+    { id: '02', subtitle: 'IRTCENTRE', title: 'КРАТКОСРОЧНЫЕ КУРСЫ', image: card2 },
+    { id: '03', subtitle: 'ОБУЧЕНИЕ', title: 'ВЫСШЕЕ ОБРАЗОВАНИЕ', image: card3 },
+    { id: '04', subtitle: '', title: 'ИСПЫТАТЕЛЬНАЯ ДЕЯТЕЛЬНОСТЬ', image: card4 },
+    { id: '05', subtitle: '', title: 'ИННОВАЦИОННОЕ ОБОРУДОВАНИЕ', image: card5 },
   ];
 
   return (
@@ -110,7 +110,7 @@ function App() {
               href={`#card-${card.id}`}
             >
               {/* Картинка — это и есть карточка */}
-              <img src={card.image} alt={card.titleAccent} className="card-image" />
+              <img src={card.image} alt={card.title} className="card-image" />
 
               {/* Номер — сверху слева */}
               <span className="card-number">{card.id}</span>
@@ -120,10 +120,7 @@ function App() {
                 {card.subtitle && (
                   <span className="card-subtitle">{card.subtitle}</span>
                 )}
-                <h3 className="card-title">
-                  {card.titleStart}{' '}
-                  <span className="card-accent">{card.titleAccent}</span>
-                </h3>
+                <h3 className="card-title">{card.title}</h3>
               </div>
 
               {/* Стрелка в кружке — слева внизу */}

@@ -376,16 +376,6 @@ body {
   margin: 0;
 }
 
-/* Акцентное слово — по умолчанию белое, при наведении красное */
-.card-accent {
-  color: #ffffff;
-  transition: color 0.3s ease;
-}
-
-.nav-card:hover .card-accent {
-  color: #e31e24;
-}
-
 /* Стрелка в кружке — слева внизу */
 .arrow-circle-btn {
   position: absolute;
