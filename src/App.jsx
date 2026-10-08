@@ -43,14 +43,15 @@ function App() {
             </div>
             <nav className="nav-menu">
               <a href="#production">Продукция</a>
-              <a href="#courses">Краткосрочные курсы</a>
-              <a href="#higher-edu">Высшее образование</a>
-              <a href="#testing">Испытательная деятельность</a>
-              <a href="#innovation">Инновационное оборудование</a>
+              <a href="#courses">Курсы</a>
+              <a href="#higher-edu">Образование</a>
+              <a href="#testing">Испытания</a>
+              <a href="#innovation">Оборудование</a>
+              <a href="#about">О нас</a>
             </nav>
             <div className="header-right">
-              <span className="lang-icon">🌐</span>
-              <button className="contact-btn">Связаться</button>
+              <button className="lang-btn" type="button">RU</button>
+              <button className="contact-btn">Контакты</button>
             </div>
           </div>
         </header>
@@ -59,7 +60,8 @@ function App() {
           <div className="hero-center-graphics">
             <img src={logoUcp} alt="UCP Expert" className="hero-center-logo" />
             <p className="hero-slogan">
-              ПРОФЕССИОНАЛЬНЫЕ РЕШЕНИЯ ДЛЯ ТЕХ, КТО СТОИТ НА СТРАЖЕ БЕЗОПАСНОСТИ
+              ПРОФЕССИОНАЛЬНЫЕ РЕШЕНИЯ ДЛЯ ТЕХ,<br />
+              КТО СТОИТ НА СТРАЖЕ БЕЗОПАСНОСТИ
             </p>
           </div>
         </div>
