@@ -38,9 +38,9 @@ function App() {
 
   const cards = [
     { id: '01', subtitle: 'UCP EXPORT', title: 'СРЕДСТВА ЗАЩИТЫ И ОБОРУДОВАНИЕ', image: card1 },
-    { id: '02', subtitle: 'IRTCENTRE', title: 'КРАТКОСРОЧНЫЕ КУРСЫ', image: card2 },
-    { id: '03', subtitle: 'ОБУЧЕНИЕ', title: 'ВЫСШЕЕ ОБРАЗОВАНИЕ', image: card3 },
-    { id: '04', subtitle: '', title: 'ИСПЫТАТЕЛЬНАЯ ДЕЯТЕЛЬНОСТЬ', image: card4 },
+    { id: '02', subtitle: 'IRTCENTRE', title: 'КРАТКОСРОЧНЫЕ КУРСЫ', image: card3 },
+    { id: '03', subtitle: 'ОБУЧЕНИЕ', title: 'ВЫСШЕЕ ОБРАЗОВАНИЕ', image: card4 },
+    { id: '04', subtitle: '', title: 'ИСПЫТАТЕЛЬНАЯ ДЕЯТЕЛЬНОСТЬ', image: card2 },
     { id: '05', subtitle: '', title: 'ИННОВАЦИОННОЕ ОБОРУДОВАНИЕ', image: card5 },
   ];
 
