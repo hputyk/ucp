@@ -20,6 +20,17 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  /* Плавная прокрутка к последней карточке */
+  const scrollToLastCard = () => {
+    const lastCard = document.getElementById('card-05');
+    if (lastCard) {
+      const offset = 100; // на сколько пикселей НИЖЕ последней карточки остановиться
+      const rect = lastCard.getBoundingClientRect();
+      const targetY = window.scrollY + rect.bottom - window.innerHeight + offset;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+  };
+
   const cards = [
     { id: '01', subtitle: 'UCP EXPORT', titleStart: 'СРЕДСТВА ЗАЩИТЫ', titleAccent: 'И ОБОРУДОВАНИЕ' },
     { id: '02', subtitle: 'IRTCENTRE', titleStart: 'КРАТКОСРОЧНЫЕ', titleAccent: 'КУРСЫ' },
@@ -68,11 +79,16 @@ function App() {
 
         <Sparks count={30} className="sparks-front" />
 
-        {/* Подсказка для скролла вниз */}
-        <a href="#cards" className="scroll-hint" aria-label="Прокрутить вниз">
+        {/* Подсказка для скролла вниз — по клику ведёт к последней карточке */}
+        <button
+          type="button"
+          className="scroll-hint"
+          onClick={scrollToLastCard}
+          aria-label="Смотреть каталог"
+        >
           <span className="scroll-hint-text">Смотреть каталог</span>
           <span className="scroll-hint-arrow">↓</span>
-        </a>
+        </button>
 
         {/* Плавное затемнение низа главной картинки к тёмному фону */}
         <div className="bottom-blend-gradient"></div>
@@ -82,7 +98,12 @@ function App() {
       <section className="cards-section" id="cards">
         <div className="cards-grid">
           {cards.map((card) => (
-            <a key={card.id} className="nav-card" href={`#card-${card.id}`}>
+            <a
+              key={card.id}
+              id={`card-${card.id}`}
+              className="nav-card"
+              href={`#card-${card.id}`}
+            >
               {/* Картинка — это и есть карточка */}
               <img src={pojarnImg} alt={card.titleAccent} className="card-image" />
 
