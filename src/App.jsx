@@ -4,7 +4,12 @@ import './App.css';
 import logoUcp from './assets/logoUCP.png';
 import heroBg from './assets/hero-bg.png';
 import qrCode from './assets/qr-code.jpg';
-import pojarnImg from './assets/pojarn.png';
+
+import card1 from './assets/1-1.png';
+import card2 from './assets/1-2.png';
+import card3 from './assets/1-3.png';
+import card4 from './assets/1-4.png';
+import card5 from './assets/1-5.png';
 
 import Sparks from '../components/Sparks';
 
@@ -20,11 +25,11 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  /* Плавная прокрутка к последней карточке */
+  /* Плавная прокрутка к последней карточке (с запасом снизу) */
   const scrollToLastCard = () => {
     const lastCard = document.getElementById('card-05');
     if (lastCard) {
-      const offset = 100; // на сколько пикселей НИЖЕ последней карточки остановиться
+      const offset = 120; // на сколько пикселей НИЖЕ последней карточки остановиться
       const rect = lastCard.getBoundingClientRect();
       const targetY = window.scrollY + rect.bottom - window.innerHeight + offset;
       window.scrollTo({ top: targetY, behavior: 'smooth' });
@@ -32,11 +37,11 @@ function App() {
   };
 
   const cards = [
-    { id: '01', subtitle: 'UCP EXPORT', titleStart: 'СРЕДСТВА ЗАЩИТЫ', titleAccent: 'И ОБОРУДОВАНИЕ' },
-    { id: '02', subtitle: 'IRTCENTRE', titleStart: 'КРАТКОСРОЧНЫЕ', titleAccent: 'КУРСЫ' },
-    { id: '03', subtitle: 'ОБУЧЕНИЕ', titleStart: 'ВЫСШЕЕ', titleAccent: 'ОБРАЗОВАНИЕ' },
-    { id: '04', subtitle: '', titleStart: 'ИСПЫТАТЕЛЬНАЯ', titleAccent: 'ДЕЯТЕЛЬНОСТЬ' },
-    { id: '05', subtitle: '', titleStart: 'ИННОВАЦИОННОЕ', titleAccent: 'ОБОРУДОВАНИЕ' },
+    { id: '01', subtitle: 'UCP EXPORT', titleStart: 'СРЕДСТВА ЗАЩИТЫ', titleAccent: 'И ОБОРУДОВАНИЕ', image: card1 },
+    { id: '02', subtitle: 'IRTCENTRE', titleStart: 'КРАТКОСРОЧНЫЕ', titleAccent: 'КУРСЫ', image: card2 },
+    { id: '03', subtitle: 'ОБУЧЕНИЕ', titleStart: 'ВЫСШЕЕ', titleAccent: 'ОБРАЗОВАНИЕ', image: card3 },
+    { id: '04', subtitle: '', titleStart: 'ИСПЫТАТЕЛЬНАЯ', titleAccent: 'ДЕЯТЕЛЬНОСТЬ', image: card4 },
+    { id: '05', subtitle: '', titleStart: 'ИННОВАЦИОННОЕ', titleAccent: 'ОБОРУДОВАНИЕ', image: card5 },
   ];
 
   return (
@@ -105,7 +110,7 @@ function App() {
               href={`#card-${card.id}`}
             >
               {/* Картинка — это и есть карточка */}
-              <img src={pojarnImg} alt={card.titleAccent} className="card-image" />
+              <img src={card.image} alt={card.titleAccent} className="card-image" />
 
               {/* Номер — сверху слева */}
               <span className="card-number">{card.id}</span>
